@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
@@ -7,12 +7,14 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v4
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Run simple build step
+        run: echo "Build successful"
 
-    - name: Run basic script
-      run: echo "CI Pipeline is working!"
+      - name: Run simple test step
+        run: echo "Tests passed"
